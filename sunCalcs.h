@@ -1,5 +1,4 @@
 #define _USE_MATH_DEFINES
-
 #include <iostream>
 #include <cmath>
 #include <time.h>
@@ -39,24 +38,6 @@ string min_to_time(double min); //takes the time of day in minutes and returns a
 
 //====== End Function Prototypes ====================================================================================
 
-
-
-int main() {
-	double lat = 44.964590;
-	double lng = -93.640970;
-	double tz = -5;
-
-	tm* time_local = CurrentDateTime();
-	double time_minutes = time_local->tm_hour * 60 + time_local->tm_min + (double)time_local->tm_sec / 60; //local time in minutes
-	
-	cout << "Sunrise: " << min_to_time(Sunrise(lat, lng, time_local, tz)) << endl;
-	cout << "Solar Noon: " << min_to_time(SolarNoon(lng, time_local, tz)) << endl;
-	cout << "Sunset: " << min_to_time(Sunset(lat, lng, time_local, tz)) << endl;
-	cout << "Current Time: " << min_to_time(time_minutes) << endl;
-	cout << "Is Night? " << (IsNight(lat, lng, time_local, tz) ? "True" : "False") << endl;
-
-    return 0;
-}
 
 bool IsNight(double lat, double lng, tm* dateTime, double timezone) {
 	double time_min = dateTime->tm_hour * 60 + dateTime->tm_min + (double)dateTime->tm_sec / 60; //current time of day in minutes
