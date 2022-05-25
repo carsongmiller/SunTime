@@ -25,7 +25,7 @@ int CurrentYear(); //Returns the current 4-digit year
 
 double EqTime(tm* dateTime); //Returns the "Equation of Time"
 double SolarDeclination(tm* dateTime); //Returns the Solar Declination
-double TimeOffset(tm* dateTime, double longitude, double timezone);
+double TimeOffset(tm* dateTime, double longitude, double timezone); //(AKA Equation of Time) Returns the time offset at the given location and date from the "ideal" solar time
 double TrueSolarTime(tm* dateTime, double timeOffset, double timezone);
 double SolarHourAngle(tm* dateTime, double lng, double timezone);
 double SolarHourAngle_SunriseSunset(double lattitude, tm* dateTime); //Gives the solar hour angle at the given lattitude 
